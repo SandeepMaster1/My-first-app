@@ -1,0 +1,48 @@
+name: Build DoubtCure APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: kivy/buildozer:python3.10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install cython==0.29.36 buildozer==2.1.0
+
+      - name: Create buildozer.spec
+        run: |
+          cat > buildozer.spec << 'EOF'
+          [app]
+          title = DoubtCure
+          package.name = doubtcure
+          package.domain = org.doubtcure
+          version = 0.1
+          source.dir = .
+          source.include_exts = py,kv,png,jpg,atlas
+          source.main = Doubtly.py
+          
+          requirements = kivy==2.3.1, kivymd==1.1.1, pillow, plyer, pytesseract, requests
+          android.permissions = INTERNET, CAMERA, RECORD_AUDIO, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
+
+          [buildozer]
+          log_level = 2
+          warn_on_root = 1
+          EOF
+
+      
+      - name: Build APK
+        run: |
+          buildozer -v android debug  
+		
+  
