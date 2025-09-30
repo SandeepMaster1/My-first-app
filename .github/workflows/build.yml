@@ -42,7 +42,4 @@ jobs:
           
       - name: 🛠️ Build Debug APK
         run: |
-          # The '-v' flag is for verbose output, helpful for debugging
           buildozer android debug
-
-		  
