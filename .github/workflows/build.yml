@@ -40,8 +40,9 @@ jobs:
           warn_on_root = 1
           EOF
           
-      - name: Build APK
+      - name: 🛠️ Build Debug APK
         run: |
-	      buildozer -v android debug
+          # The '-v' flag is for verbose output, helpful for debugging
+          buildozer android debug
 
 		  
