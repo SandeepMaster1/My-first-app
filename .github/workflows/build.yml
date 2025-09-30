@@ -39,10 +39,9 @@ jobs:
           log_level = 2
           warn_on_root = 1
           EOF
-
-      
+          
       - name: Build APK
         run: |
-          buildozer -v android debug  
-		
-  
+	      buildozer -v android debug
+
+		  
