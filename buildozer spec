@@ -1,0 +1,57 @@
+[app]
+# Title of the application
+title = DoubtCure
+
+# Package name
+package.name = doubtcure
+
+# Package domain
+package.domain = org.doubtcure
+
+# Source code where main.py (doubtly.py) is located
+source.dir = .
+
+# Main .py file
+source.main = doubtly.py
+
+# Version
+version = 0.1
+
+# Supported orientation
+orientation = portrait
+
+# Permissions required
+android.permissions = INTERNET,CAMERA,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE,RECORD_AUDIO
+
+# List of inclusions
+source.include_exts = py,png,jpg,kv,atlas
+
+# Application requirements
+requirements = python3,kivy,kivymd,plyer,requests,Pillow,pytesseract,sqlite3
+
+# Icon and presplash (optional)
+icon.filename = %(source.dir)s/icon.png
+presplash.filename = %(source.dir)s/presplash.png
+
+# Hide the title bar
+fullscreen = 0
+
+# (bool) Indicate if the application should be fullscreen or not.
+android.api = 33
+android.minapi = 21
+android.sdk_path = /home/runner/android-sdk
+android.ndk_path = /home/runner/android-sdk/ndk/25.2.9519653
+android.ndk = 25b
+android.ndk_api = 21
+
+# (list) Permissions
+android.features = android.hardware.camera,android.hardware.microphone
+
+# Supported architectures
+android.archs = arm64-v8a, armeabi-v7a
+
+# Logging
+log_level = 2
+
+[buildozer]
+warn_on_root = 1
