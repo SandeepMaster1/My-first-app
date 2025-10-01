@@ -39,11 +39,6 @@ jobs:
           echo "$HOME/android-sdk/build-tools/33.0.2" >> $GITHUB_PATH
           echo "$HOME/android-sdk/ndk/25.2.9519653" >> $GITHUB_PATH
 
-      - name: Link SDK to Buildozer expected path
-        run: |
-          mkdir -p /home/runner/.buildozer/android/platform/
-          ln -sfn $HOME/android-sdk /home/runner/.buildozer/android/platform/android-sdk
-
           [buildozer]
           log_level = 2
           warn_on_root = 1
