@@ -38,21 +38,6 @@ jobs:
           echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
           echo "$HOME/android-sdk/build-tools/33.0.2" >> $GITHUB_PATH
           echo "$HOME/android-sdk/ndk/25.2.9519653" >> $GITHUB_PATH
-          
-      - name: Create buildozer.spec
-        run: |
-          cat > buildozer.spec << 'EOF'
-          [app]
-          title = DoubtCure
-          package.name = doubtcure
-          package.domain = org.doubtcure
-          version = 0.1
-          source.dir = .
-          source.include_exts = py,kv,png,jpg,atlas
-          source.main = Doubtly.py
-          
-          requirements = kivy==2.3.1, kivymd==1.1.1, pillow, plyer, pytesseract, requests
-          android.permissions = INTERNET, CAMERA, RECORD_AUDIO, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
 
       - name: Link SDK to Buildozer expected path
         run: |
